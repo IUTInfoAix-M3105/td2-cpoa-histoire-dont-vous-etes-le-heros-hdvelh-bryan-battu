@@ -16,7 +16,13 @@ public class Scenario {
 	private GUIManager gui;
 
 	/* TO BE COMPLETED */
-
+	public String run() {
+		Event nextStep;
+		if ((nextStep = getHead()) == null) { return MSG_EMPTY_SCENARIO; }
+		while (nextStep.isFinal()) { nextStep = nextStep.run(); }
+		gui.outputln(nextStep.getData());
+		return MSG_FINALE;
+	}
 	/* MAIN */
 	public static void main(String[] args) {
 		Scenario scenario;

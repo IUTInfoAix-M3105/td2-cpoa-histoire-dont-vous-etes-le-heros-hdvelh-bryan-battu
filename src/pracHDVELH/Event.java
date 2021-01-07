@@ -18,37 +18,45 @@ public class Event extends NodeMultiple {
 	public static final String PROMPT_ANSWER = "Answer: ";
 	public static final String WARNING_MSG_INTEGER_EXPECTED = "Please input a integer within range!";
 
-	/* This event's identifier */
+	/**
+	 * This event's identifier
+	 */
 	private int id;
-
-	/* The text version of the player's current answer */
+	/**
+	 * The text version of the player's current answer
+	 */
 	private String playerAnswer;
-
-	/* The daughter's index chosen for the next event */
+	/**
+	 * The daughter's index chosen for the next event
+	 */
 	private int chosenPath;
-
-	/* The graphical User Interface */
+	/**
+	 * The Graphical User Interface
+	 */
 	private GUIManager gui;
-
-	/* The input reader */
+	/**
+	 * The input reader
+	 */
 	private Scanner reader;
 
 	static private int lastId = -1;
 
-	/* Constructeurs */
-	public Event (int x) {
+	/* CONSTRUCTEURS */
+	public Event () {
 
 	}
 
 	public Event (GUIManager gui, String data) {
 		super(data);
-		this.gui = gui;
-		reader = gui.getInputReader();
+		this.gui=gui;
+		reader=gui.getInputReader();
 		id = ++lastId;
 		chosenPath = -1;
-		playerAnswer = "toto";
+
 	}
+
 	/**
+	 *
 	 * @return the playerAnswer
 	 */
 	public String getPlayerAnswer() {
@@ -129,6 +137,7 @@ public class Event extends NodeMultiple {
 	public GUIManager getGui() {
 		/* TO BE COMPLETED */
 	}
+
 	/**
 	 * @param gui the gui to set
 	 */
@@ -146,16 +155,16 @@ public class Event extends NodeMultiple {
 	/* Methods */
 	/* TO BE COMPLETED */
 	public Event run() {
-		/* print out the event description (i.e, this node's data) */
-		gui.output(this.toString());
-		/* wait for the player's answer, which must be on a node index */
+		/* print out the event description (i,E. this node's data) */
+		gui.outputln(this.toString());
+		/* wait for the player's answer, which must be a node index */
 		gui.output(PROMPT_ANSWER);
 		playerAnswer = reader.next();
-		chosenPath = InterpretAnswer();
+		chosenPath=interpretAnswer();
 		return getDaughter(chosenPath);
+
 	}
 
 }
-
 
 // eof

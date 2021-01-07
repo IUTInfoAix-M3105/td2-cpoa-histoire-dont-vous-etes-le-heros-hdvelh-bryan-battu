@@ -1,11 +1,11 @@
 /**
-* File: NodeMultiple.java
-* Creation: 7 nov. 2020, Jean-Philippe.Prost@univ-amu.fr
-* Template étudiants
-*/
-		package pracHDVELH;
+ * File: NodeMultiple.java
+ * Creation: 7 nov. 2020, Jean-Philippe.Prost@univ-amu.fr
+ * Template étudiants
+ */
+package pracHDVELH;
 
-		import myUtils.ErrorNaiveHandler;
+import myUtils.ErrorNaiveHandler;
 
 /**
  * @author prost
@@ -21,8 +21,8 @@ public class NodeMultiple {
 	/* Overridden methods */
 	@Override
 	public String toString() {
+		/* TO BE COMPLETED */
 		return data.toString();
-
 	}
 
 	/* Getters/Setters */
@@ -53,14 +53,19 @@ public class NodeMultiple {
 	 * @param i        the daughter node's index
 	 */
 	public void setDaughter(NodeMultiple daughter, int i) {
-		if (i < 0 || i >= NODE_MAX_ARITY) {ErrorNaiveHandler.abort(ERROR_MSG_INDEX_OUT_OF_RANGE+"@"+getClass()+".setDaughter()");}
-		daughters[i] = daughter;
+		/* TO BE COMPLETED */
+		if (i<0 || i>=NODE_MAX_ARITY) {
+			ErrorNaiveHandler.abort(ERROR_MSG_INDEX_OUT_OF_RANGE + "0" + getClass() + ".set.Daughter()");
+		}
+		daughters[i]=daughter;
+
 	}
 
 	/**
 	 * @return all the daughters
 	 */
 	public NodeMultiple[] getDaughters() {
+		/* TO BE COMPLETED */
 		return daughters;
 	}
 
@@ -70,6 +75,7 @@ public class NodeMultiple {
 	public void setDaughters(NodeMultiple[] daughters) {
 		/* TO BE COMPLETED */
 	}
+
 	/**
 	 * Adds the given {@code daughter} node at the first available index.
 	 *
@@ -79,9 +85,12 @@ public class NodeMultiple {
 	 * @param daughter
 	 */
 	public void addDaughter(NodeMultiple daughter) {
-		if (daughter == null) {return;}
+		/* TO BE COMPLETED */
+		if (daughter == null) {
+			return;
+		}
 		int i = 0;
-		while (i < NODE_MAX_ARITY && daughters[i] != null) {
+		while(daughters[i] != null && i < NODE_MAX_ARITY) {
 			i++;
 		}
 		if (i < NODE_MAX_ARITY) {
@@ -93,7 +102,7 @@ public class NodeMultiple {
 	 * @return the content data
 	 */
 	public Object getData() {
-		return data;
+		/* TO BE COMPLETED */
 	}
 
 	/**
@@ -113,7 +122,7 @@ public class NodeMultiple {
 			return false;
 		}
 		int i = 0;
-		while (i < daughters.length && daughters[i] != null) {
+		while (i < daughters.length && daughters[i] == null) {
 			++i;
 		}
 		return i < daughters.length ? true : false;
@@ -124,10 +133,12 @@ public class NodeMultiple {
 	 * Default constructor.
 	 */
 	public NodeMultiple() {
-		//super();
-		data = new Object(); // inutile ?
-		daughters = new NodeMultiple[NODE_MAX_ARITY];
+		/* TO BE COMPLETED */
+//		super();
+		data =new Object(); //inutile...
+		daughters =new NodeMultiple[NODE_MAX_ARITY];
 	}
+	/* TO BE COMPLETED */
 
 	/**
 	 * Constructor. Sets the content data to {@code data} and creates an empty set
@@ -136,10 +147,11 @@ public class NodeMultiple {
 	 * @param data
 	 */
 	public NodeMultiple(Object data) {
+		/* TO BE COMPLETED */
 		this();
-		this.data = data;
-
+		this.data=data;
 	}
+
 }
 
 // eof
